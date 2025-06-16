@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Travel Personality Quiz</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+           <link href="css/mystyles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="scratch.html">Scratch</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="webapp.html">Web App</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('6345959.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Travel Personality Quiz</h1><br>
+                            <span class="subheading">Hey future travelers! Take the quiz below to plan the perfect vacation!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <!--<p class="center">Hey future travelers! Take the quiz below to find out your travel personality to plan the perfect vacation!</p>-->
+        <div class="quiz-container">
+    <h2>What’s Your Travel Personality?</h2>
+
+    <div class="question">
+      <label>1. What’s your ideal trip vibe?</label><br>
+      <select id="q1">
+        <option value="">--Select--</option>
+        <option value="adventure">Hiking mountains</option>
+        <option value="chill">Lounging on a beach</option>
+        <option value="culture">Exploring museums</option>
+        <option value="food">Tasting street food</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>2. You can only bring one thing—what is it?</label><br>
+      <select id="q2">
+        <option value="">--Select--</option>
+        <option value="adventure">A GoPro</option>
+        <option value="chill">A good book</option>
+        <option value="culture">A journal</option>
+        <option value="food">Snacks</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>3. Where are you most excited to go?</label><br>
+      <select id="q3">
+        <option value="">--Select--</option>
+        <option value="adventure">New Zealand</option>
+        <option value="chill">Maldives</option>
+        <option value="culture">Rome</option>
+        <option value="food">Bangkok</option>
+      </select>
+    </div>
+
+    <button onclick="showResult()">Find Out!</button>
+
+    <div id="result"></div>
+  </div><br><br>
+
+  <script>
+    function showResult() {
+      const answers = [q1.value, q2.value, q3.value];
+      const counts = { adventure: 0, chill: 0, culture: 0, food: 0 };
+
+      answers.forEach(ans => {
+        if (ans) counts[ans]++;
+      });
+
+      // Find the highest score
+      let personality = "chill"; // default fallback
+      let max = 0;
+      for (let type in counts) {
+        if (counts[type] > max) {
+          personality = type;
+          max = counts[type];
+        }
+      }
+
+      let resultText = "";
+
+      switch(personality) {
+        case "adventure":
+          resultText = `<div class="result-title">You’re The Adventurer! 🧗‍♀️</div>
+          You crave thrill and discovery. Mountains, trails, and wild stories await you.`;
+          break;
+        case "chill":
+          resultText = `<div class="result-title">You’re The Chill Nomad! 🏖️</div>
+          Hammocks, sunsets, and tropical breezes are your thing. You’re all about the vibes.`;
+          break;
+        case "culture":
+          resultText = `<div class="result-title">You’re The Culture Seeker! 🏛️</div>
+          You’re happiest exploring temples, art galleries, and soaking up local history.`;
+          break;
+        case "food":
+          resultText = `<div class="result-title">You’re The Food Explorer! 🍜</div>
+          Your suitcase has snacks and your heart belongs to flavor. Bon appétit!`;
+          break;
+      }
+
+      document.getElementById("result").innerHTML = resultText;
+    }
+  </script>
+        <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#top">Return to top</a></div>
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+       <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#top">
+                                    <!--
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                        -->
+                                    <!--</span>-->
+                                </a>
+                            </li>
+                            <!--
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            -->
+                            <!--
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            -->
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Jillian Godfrey &copy; 2025</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        
+    </body>
+</html>
